@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>StockSense — Smart Investment Analyzer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">📈 StockSense</div>
+    <nav>
+      <span>Analyzer</span>
+      <span>About</span>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Should you invest?</h1>
+      <p class="subtitle">Enter a stock ticker and we'll analyze it against 10 key investment parameters instantly.</p>
+
+      <div class="search-box">
+        <input
+          type="text"
+          id="stockInput"
+          placeholder="Enter ticker symbol (e.g. AAPL, TSLA, INFY)"
+          maxlength="10"
+          autocomplete="off"
+        />
+        <button id="analyzeBtn" onclick="analyzeStock()">Analyze</button>
+      </div>
+      <p class="disclaimer">Uses Yahoo Finance public data. For educational purposes only.</p>
+    </section>
+
+    <section id="resultSection" class="result-section hidden">
+
+      <div id="verdictCard" class="verdict-card">
+        <div class="verdict-label">Verdict</div>
+        <div id="verdictText" class="verdict-text">—</div>
+        <div id="verdictSub" class="verdict-sub"></div>
+        <div id="scoreBar" class="score-bar"><div id="scoreFill" class="score-fill"></div></div>
+        <div id="scoreLabel" class="score-label"></div>
+      </div>
+
+      <div id="parametersGrid" class="parameters-grid"></div>
+
+    </section>
+
+    <section id="loadingSection" class="loading-section hidden">
+      <div class="spinner"></div>
+      <p>Fetching &amp; analyzing <span id="loadingTicker"></span>…</p>
+    </section>
+
+    <section id="errorSection" class="error-section hidden">
+      <p id="errorMsg">Something went wrong.</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Built with ❤️ | StockSense 2025 | Data via Yahoo Finance</p>
+  </footer>
+
+  <script src="parameters.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
